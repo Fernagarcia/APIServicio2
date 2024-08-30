@@ -27,7 +27,4 @@ public class Colaborador {
 
     @Column(name = "score")
     private Double puntaje;
-
-    @Column(name = "last_month_donations")
-    private Integer donacionesUltimoMes;
 }
