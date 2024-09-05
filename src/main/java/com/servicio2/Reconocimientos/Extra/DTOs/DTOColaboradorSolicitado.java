@@ -12,5 +12,5 @@ public class DTOColaboradorSolicitado {
         private String apellido;
         private String email;
         private Double puntaje;
-        private Long cantidadDonaciones;
+        private Integer cantidadDonaciones;
 }

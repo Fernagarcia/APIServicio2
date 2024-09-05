@@ -27,4 +27,7 @@ public class Colaborador {
 
     @Column(name = "score")
     private Double puntaje;
+
+    @Column(name = "viandas_donadas")
+    private Integer cantViandas;
 }

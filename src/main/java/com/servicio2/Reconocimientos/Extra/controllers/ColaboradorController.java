@@ -1,5 +1,6 @@
 package com.servicio2.Reconocimientos.Extra.controllers;
 
+import com.servicio2.Reconocimientos.Extra.DTOs.DTOActualizarViandas;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -23,8 +24,14 @@ public class ColaboradorController {
     @ApiResponse(responseCode = "200", description = "Lista de colaboradores",
                     content = @Content(mediaType = "application/json",
                     schema = @Schema(implementation = DTOColaboradorSolicitado.class)))
-    @GetMapping
+
+    @GetMapping("/colaboradores")
     public List<DTOColaboradorSolicitado> obtenerColaboradores(@RequestBody DTOConsulta consulta){
         return colaboradorService.obtenerColaboradores(consulta);
+    }
+
+    @PutMapping("/colaboradores/cantidad_viandas")
+    public int actualizarViandasColaborador(@RequestBody DTOActualizarViandas actualizacion){
+        return colaboradorService.actualizarColaborador(actualizacion);
     }
 }
