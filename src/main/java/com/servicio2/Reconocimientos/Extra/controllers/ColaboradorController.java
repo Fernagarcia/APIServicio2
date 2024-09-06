@@ -19,17 +19,26 @@ public class ColaboradorController {
     @Autowired
     ColaboradorService colaboradorService;
 
-    @Operation(summary = "Obtener lista de colaboradores", description = "Retorna una lista de colaboradores filtrados"
+    @Operation(summary = "Pantalla inicio", description = "Nombre de la API")
+    @GetMapping("")
+    public String inicio(){
+        return "API - Servicio 2 - Reconocimiento Extra";
+    }
+
+    @Operation(summary = "Obtener lista de colaboradores", description = "Retorna una lista de colaboradores filtrados "
             + "por cantidad de donaciones el ultimo mes y puntos obtenidos históricamente")
     @ApiResponse(responseCode = "200", description = "Lista de colaboradores",
                     content = @Content(mediaType = "application/json",
                     schema = @Schema(implementation = DTOColaboradorSolicitado.class)))
-
-    @GetMapping("/colaboradores")
+    @PostMapping("/colaboradores")
     public List<DTOColaboradorSolicitado> obtenerColaboradores(@RequestBody DTOConsulta consulta){
         return colaboradorService.obtenerColaboradores(consulta);
     }
 
+    @Operation(summary = "Actualizar la cantidad de viandas donadas el ultimo mes de un colaborador")
+    @ApiResponse(responseCode = "200", description = "Cantidad de columnas afectadas",
+                    content = @Content(mediaType = "application/json",
+                    schema = @Schema(implementation = Integer.class)))
     @PutMapping("/colaboradores/cantidad_viandas")
     public int actualizarViandasColaborador(@RequestBody DTOActualizarViandas actualizacion){
         return colaboradorService.actualizarColaborador(actualizacion);

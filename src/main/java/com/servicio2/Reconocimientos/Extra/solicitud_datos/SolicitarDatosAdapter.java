@@ -95,8 +95,7 @@ public class SolicitarDatosAdapter implements ISolicitarDatosAdapter{
         });
 
         viandasPorColaborador.forEach((id_colaborador, cantidad) -> {
-            Colaborador colaborador = colaboradorRepository.getReferenceById(id_colaborador);
-            colaborador.setCantViandas(cantidad);
+            colaboradorRepository.updateViandasColaboradorById(Math.toIntExact(id_colaborador), cantidad);
         });
     }
 }
