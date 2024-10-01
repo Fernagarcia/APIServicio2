@@ -20,8 +20,9 @@ La API brindara todos los colaborades posibles, en el caso que no hayan traido l
    * spring.datasource.url=jdbc:mysql://127.0.0.1:3306/nombre_del_esquema_creado
    * spring.datasource.username=tu_nombre
    * spring.datasource.password=tu_contraseña
-4. (Opcional) Correr el archivo colaboradoresSeeder.sql para tener datos de prueba en la BD
-5. Correr ReconocimientosExtraApplication
+4. Correr ReconocimientosExtraApplication
+5. (Opcional) Correr el archivo colaboradoresSeeder.sql para tener datos de prueba en la BD
+
 
 Una vez hecho estos pasos abri tu navegador he ingresa a http://localhost:8080/swagger-ui/index.html para poder visualizar el endpoint y sus respuestas.
 
