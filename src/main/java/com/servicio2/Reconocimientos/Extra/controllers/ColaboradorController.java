@@ -1,13 +1,11 @@
 package com.servicio2.Reconocimientos.Extra.controllers;
 
-import com.servicio2.Reconocimientos.Extra.DTOs.DTOActualizarViandas;
 import com.servicio2.Reconocimientos.Extra.models.Colaborador;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import com.servicio2.Reconocimientos.Extra.services.ColaboradorService;
 import com.servicio2.Reconocimientos.Extra.DTOs.DTOColaboradorSolicitado;
-import com.servicio2.Reconocimientos.Extra.DTOs.DTOConsulta;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,14 +40,5 @@ public class ColaboradorController {
                                                                @RequestParam Integer minDonacionUltMes,
                                                                @RequestParam Integer cantidadMaxADevolver){
         return colaboradorService.obtenerColaboradores(minPuntos, minDonacionUltMes, cantidadMaxADevolver);
-    }
-
-    @Operation(summary = "Actualizar la cantidad de viandas donadas el ultimo mes de un colaborador")
-    @ApiResponse(responseCode = "200", description = "Cantidad de columnas afectadas",
-                    content = @Content(mediaType = "application/json",
-                    schema = @Schema(implementation = Integer.class)))
-    @PutMapping("/colaboradores/cantidad_viandas")
-    public int actualizarViandasColaborador(@RequestBody DTOActualizarViandas actualizacion){
-        return colaboradorService.actualizarColaborador(actualizacion);
     }
 }
